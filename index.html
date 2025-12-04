@@ -3,696 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argentina Renewable Energy Infrastructure: DFI and Equity Investor Landscape</title>
+    <title>Argentina Renewable Energy Reports Summary</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: #f5f7fa;
             color: #333;
-            background-color: #f8f9fa;
+            line-height: 1.6;
             padding: 20px;
-        }
-        
-        .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
         }
         
-        .header {
-            background: linear-gradient(135deg, #1a5f7a 0%, #2a9d8f 100%);
-            color: white;
-            padding: 40px;
+        header {
             text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2c3e50;
         }
         
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+        h1 {
+            color: #2c3e50;
             margin-bottom: 10px;
-            line-height: 1.2;
+            font-size: 2.2rem;
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-        
-        .report-meta {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .section {
-            padding: 40px;
-            border-bottom: 1px solid #eaeaea;
-        }
-        
-        .section:last-child {
-            border-bottom: none;
-        }
-        
-        .section-header {
-            color: #2a9d8f;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eaeaea;
-        }
-        
-        .key-takeaways {
-            background: #f0f9ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .takeaway-item {
-            display: flex;
-            align-items: flex-start;
+            color: #7f8c8d;
+            font-size: 1.1rem;
             margin-bottom: 15px;
         }
         
-        .takeaway-icon {
-            color: #2a9d8f;
-            font-weight: bold;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-        }
-        
-        th {
-            background-color: #1a5f7a;
-            color: white;
-            font-weight: 600;
+        .disclaimer {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
             padding: 15px;
-            text-align: left;
-        }
-        
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eaeaea;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        tr:hover {
-            background-color: #f0f9ff;
-        }
-        
-        .program-list {
-            list-style-type: none;
-            margin: 20px 0;
-        }
-        
-        .program-list li {
-            padding: 10px 0 10px 30px;
-            position: relative;
-        }
-        
-        .program-list li:before {
-            content: "▸";
-            color: #2a9d8f;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .risk-item {
-            background: #fff8e1;
-            padding: 15px;
-            border-left: 4px solid #ff9800;
-            margin: 15px 0;
+            margin-bottom: 25px;
             border-radius: 4px;
+            font-size: 0.9rem;
+            color: #666;
         }
         
-        .bankability-item {
+        .disclaimer strong {
+            color: #e74c3c;
+        }
+        
+        .tab-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .tab-headers {
             display: flex;
-            align-items: center;
-            margin: 15px 0;
-            padding: 12px;
-            background: #e8f5e9;
-            border-radius: 6px;
+            background-color: #34495e;
+            overflow-x: auto;
         }
         
-        .bankability-item:before {
-            content: "✓";
-            color: #4caf50;
-            font-weight: bold;
-            margin-right: 10px;
+        .tab-header {
+            padding: 16px 24px;
+            color: #ecf0f1;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.3s;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
         }
         
-        .action-list {
-            list-style-type: none;
-            margin: 20px 0;
+        .tab-header:hover {
+            background-color: #3d566e;
         }
         
-        .action-list li {
-            padding: 12px 0 12px 35px;
-            position: relative;
+        .tab-header.active {
+            background-color: #2c3e50;
+            border-bottom-color: #3498db;
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .report-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
         
-        .action-list li:before {
-            content: "→";
-            color: #1a5f7a;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .summary-section {
+            margin-bottom: 25px;
         }
         
-        .acronym-table {
-            max-width: 800px;
-            margin: 0 auto;
+        .summary-section h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
         
-        .disclaimer {
-            background: #fff3e0;
-            padding: 20px;
-            border-radius: 8px;
+        .summary-section p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .key-points {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .key-points li {
+            margin-bottom: 8px;
+        }
+        
+        .citation-note {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
             font-size: 0.9rem;
-            margin-top: 30px;
-            border-left: 4px solid #ff9800;
-        }
-        
-        .print-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1a5f7a;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .print-button:hover {
-            background: #2a9d8f;
-            transform: translateY(-2px);
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .print-button {
-                display: none;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-            }
-            
-            table {
-                page-break-inside: auto;
-            }
-            
-            tr {
-                page-break-inside: avoid;
-                page-break-after: auto;
-            }
         }
         
         @media (max-width: 768px) {
-            .header {
-                padding: 25px 20px;
+            .tab-header {
+                padding: 14px 18px;
+                font-size: 0.9rem;
             }
             
-            .header h1 {
+            .tab-content {
+                padding: 20px;
+            }
+            
+            h1 {
                 font-size: 1.8rem;
-            }
-            
-            .section {
-                padding: 25px 20px;
-            }
-            
-            .section-header {
-                font-size: 1.5rem;
-            }
-            
-            table {
-                font-size: 0.85rem;
-            }
-            
-            th, td {
-                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Argentina Renewable Energy Infrastructure: DFI and Equity Investor Landscape</h1>
-            <div class="subtitle">Report Summary | AlphaSense Deep Research | December 2025</div>
-            <div class="report-meta">
-                <div class="meta-item">📊 Market Analysis</div>
-                <div class="meta-item">💼 Investor Landscape</div>
-                <div class="meta-item">⚡ Renewable Energy</div>
-            </div>
+    <header>
+        <h1>Argentina Renewable Energy Regulatory Reports</h1>
+        <div class="subtitle">Summary of AlphaSense Research Reports on Argentina's Renewable Energy Landscape</div>
+    </header>
+    
+    <div class="disclaimer">
+        <strong>Disclaimer:</strong> These summaries are based on AI-generated AlphaSense research reports. While comprehensive, they may contain inaccuracies and should be verified with original source documents. The information provided is for informational purposes only and not a substitute for professional advice.
+    </div>
+    
+    <div class="tab-container">
+        <div class="tab-headers">
+            <div class="tab-header active" data-tab="tab1">RIGI Enrollment Process</div>
+            <div class="tab-header" data-tab="tab2">DFI & Investor Landscape</div>
+            <div class="tab-header" data-tab="tab3">RIGI Post-Rejection Options</div>
+            <div class="tab-header" data-tab="tab4">Technical Standards</div>
+            <div class="tab-header" data-tab="tab5">Regulatory Changes Impact</div>
         </div>
         
-        <div class="section">
-            <h2 class="section-header">1. Executive Summary</h2>
-            <p>This report analyzes the financing and investment landscape for utility-scale renewable energy (wind, solar, storage) projects in Argentina. The market is transitioning from sovereign-backed programs to a private-led model, creating opportunities and distinct risks. Success hinges on navigating foreign exchange (FX) convertibility, structuring projects with USD-denominated revenues, and leveraging Development Finance Institution (DFI) support and guarantees.</p>
+        <!-- Tab 1: RIGI Enrollment Process -->
+        <div class="tab-content active" id="tab1">
+            <h2 class="report-title">Enrolling a Renewable Energy Project under Argentina's RIGI Regime</h2>
             
-            <div class="key-takeaways">
-                <h3 style="color: #1a5f7a; margin-bottom: 15px;">Key Takeaways:</h3>
-                <div class="takeaway-item">
-                    <span class="takeaway-icon">•</span>
-                    <span><strong>Market Shift:</strong> Movement from the RenovAr program (sovereign PPAs) to MATER (private corporate PPAs) and targeted tenders like AlmaGBA for battery storage (BESS)</span>
-                </div>
-                <div class="takeaway-item">
-                    <span class="takeaway-icon">•</span>
-                    <span><strong>Financing Leaders:</strong> IDB Group is the dominant multilateral, planning up to $10 billion for Argentina (2025-2028). Active bilateral DFIs include FMO, Proparco, FinDev Canada, and CAF</span>
-                </div>
-                <div class="takeaway-item">
-                    <span class="takeaway-icon">•</span>
-                    <span><strong>Key Risk:</strong> Currency convertibility and repatriation is the primary concern for foreign capital. The new RIGI regime (offering FX, tax, and regulatory stability) is critical for scaling long-term finance</span>
-                </div>
-                <div class="takeaway-item">
-                    <span class="takeaway-icon">•</span>
-                    <span><strong>Growth Channels:</strong> MATER corporate PPAs are the main growth driver. Grid-scale storage is now investable via AlmaGBA's 15-year, USD-denominated contracts</span>
-                </div>
-                <div class="takeaway-item">
-                    <span class="takeaway-icon">•</span>
-                    <span><strong>Equity Leaders:</strong> Domestic IPPs like Genneia, Central Puerto, YPF Luz, and Pampa Energía dominate the build-out, pivoting to private PPAs and storage</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-header">2. Market & Finance Context</h2>
-            <p>Argentina's renewable energy finance model is evolving with direct implications for bankability.</p>
-            
-            <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="color: #1a5f7a; margin-bottom: 10px;">Current Model:</h3>
-                <p>Shift from centralized, sovereign-wrapped PPAs (RenovAr) to a mixed regime of private corporate PPAs (MATER), targeted tenders, and wholesale market (MEM) liberalization.</p>
+            <div class="summary-section">
+                <h3>Report Overview</h3>
+                <p>A practical guide for foreign developers on enrolling renewable energy projects under Argentina's Régimen de Incentivo para Grandes Inversiones (RIGI), which offers 30-year tax, customs, and foreign-exchange stability for investments of at least US$200 million.</p>
             </div>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Key Programs:</h3>
-            <ul class="program-list">
-                <li><strong>RenovAr:</strong> Legacy program with USD PPAs & FODER/World Bank guarantees</li>
-                <li><strong>MATER:</strong> Bilateral corporate PPAs; ~10 GW awarded 2018-2025</li>
-                <li><strong>AlmaGBA:</strong> 2025 BESS tender with 15-year USD contracts, backstopped by CAMMESA</li>
-                <li><strong>RenMDI:</strong> Tender to replace forced generation</li>
-            </ul>
-            
-            <div class="risk-item">
-                <strong>Primary Risk: FX Convertibility</strong> - Historic controls and payment chain arrears are key deterrents. The RIGI law and ongoing capital control reforms are pivotal for attracting foreign investment.
+            <div class="summary-section">
+                <h3>Key Eligibility Requirements</h3>
+                <ul class="key-points">
+                    <li><strong>Minimum Investment:</strong> US$200 million, with at least US$80 million disbursed within 24 months after approval</li>
+                    <li><strong>Sector Coverage:</strong> Energy (solar, wind, hydro, and storage)</li>
+                    <li><strong>Application Window:</strong> Two years from the Base Law's entry into force (August 2024 - July 2026) with possible 12-month extension</li>
+                    <li><strong>Vehicle:</strong> Single-Project Vehicle (VPU) or local branch owning all project assets</li>
+                </ul>
             </div>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Bankability Essentials:</h3>
-            <div class="bankability-item">USD-denominated revenue streams</div>
-            <div class="bankability-item">DFI participation</div>
-            <div class="bankability-item">Priority dispatch mechanisms</div>
-            <div class="bankability-item">Political risk insurance (PRI)</div>
+            <div class="summary-section">
+                <h3>Step-by-Step Process</h3>
+                <ol class="key-points">
+                    <li><strong>Project & Corporate Set-Up:</strong> Incorporate VPU/branch in Argentina and register with tax (AFIP) & corporate registries</li>
+                    <li><strong>Permitting Alignment:</strong> File Environmental Impact Assessment (EIA) at provincial level</li>
+                    <li><strong>Investment Plan Preparation:</strong> Draft RIGI investment plan detailing capex, technology, schedule, financing, and local-content (≥20% from Argentine suppliers)</li>
+                    <li><strong>Formal Application:</strong> Upload via Ministry of Economy (MoE) portal under Res. 1,074/2024</li>
+                    <li><strong>Technical & Legal Review:</strong> MoE verifies eligibility, capex, and funding sources</li>
+                    <li><strong>Approval & Certificate Issuance:</strong> MoE issues "Certificado de Adhesión al RIGI" granting 30-year stability</li>
+                    <li><strong>Post-Approval Compliance:</strong> Invest ≥US$80 million within 24 months and file semi-annual progress reports</li>
+                </ol>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Core Documentation Checklist</h3>
+                <ul class="key-points">
+                    <li>Corporate pack (notarized bylaws, board minutes, tax ID)</li>
+                    <li>Technical dossier (resource study, equipment list, interconnection studies)</li>
+                    <li>Financial plan (capex breakdown, sources & uses, proof of funds)</li>
+                    <li>EIA/DIA (filed copy or approval resolution)</li>
+                    <li>Affidavits (minimum-investment commitment, AML/KYC compliance)</li>
+                    <li>Customs annex (list of goods to be imported duty-free)</li>
+                    <li>FX annex (projected export proceeds and foreign-currency needs)</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <strong>Timeline:</strong> Review period typically ranges 3-6 months. The 30-year stability starts on certificate date, not on commercial operation date. Example: YPF's "El Quemado" 305 MW solar project took approximately 3 months from application to approval.
+            </div>
+            
+            <div class="citation-note">Based on AlphaSense report "Enrolling a Renewable Energy Project under Argentina's RIGI Regime" (Dec 04, 2025)</div>
         </div>
         
-        <div class="section">
-            <h2 class="section-header">3. Development Finance Institution (DFI) Landscape</h2>
-            <p>DFIs provide senior debt, guarantees, concessional finance, and risk mitigation. Typical ticket sizes range from $30-80 million per asset.</p>
+        <!-- Tab 2: DFI & Investor Landscape -->
+        <div class="tab-content" id="tab2">
+            <h2 class="report-title">Argentina Renewable Energy Infrastructure: DFI and Equity Investor Landscape</h2>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Institution</th>
-                        <th>Key Instruments (in Argentina)</th>
-                        <th>Indicative Ticket Size</th>
-                        <th>Recent Argentina Activity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>World Bank – IBRD</strong></td>
-                        <td>Sovereign guarantees for payment risk</td>
-                        <td>~$480m facility</td>
-                        <td>Backstopped RenovAr's FODER guarantee facility</td>
-                    </tr>
-                    <tr>
-                        <td><strong>IFC</strong></td>
-                        <td>Senior/project loans, MCPP, co-financing</td>
-                        <td>$20m - $76m (single project)</td>
-                        <td>Loans to Central Puerto's wind farms; $300m mandate for renewables/BESS</td>
-                    </tr>
-                    <tr>
-                        <td><strong>IDB Invest</strong></td>
-                        <td>Direct A/B loans, guarantees, blended finance</td>
-                        <td>$36m - $80m (direct loan)</td>
-                        <td>Co-financed Central Puerto projects; $80m loan to Genneia; part of IDB Group's $10bn country plan</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FMO (Netherlands)</strong></td>
-                        <td>Long-tenor senior loans, syndication leader</td>
-                        <td>$30m - $100m</td>
-                        <td>Co-arranged $85m & $100m syndicated facilities for Genneia's wind/solar projects</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Proparco (France)</strong></td>
-                        <td>Senior loans in DFI syndicates</td>
-                        <td>~$30m (single deal)</td>
-                        <td>Part of $100m syndicated loan for PV plants in Mendoza</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FinDev Canada</strong></td>
-                        <td>Senior loans, concessional co-investment</td>
-                        <td>$40m - $100m</td>
-                        <td>Co-lender to Genneia ($85m facility); part of syndications for new PV plants</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CAF</strong></td>
-                        <td>Direct long-term loans, guarantees</td>
-                        <td>$30m - $300m</td>
-                        <td>Financed 80 MW Cafayate Solar; $300m loan to Pan American Energy</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Green Climate Fund (GCF)</strong></td>
-                        <td>Concessional loans via MDBs (e.g., IDB)</td>
-                        <td>Program level ($100m)</td>
-                        <td>$100m line for SME renewable/EE projects, executed by local bank BICE</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="summary-section">
+                <h3>Report Overview</h3>
+                <p>Analysis of Development Finance Institutions (DFIs) and equity investors active in Argentina's renewable energy infrastructure sector, focusing on utility-scale projects and evolving market dynamics.</p>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Key Market Context</h3>
+                <ul class="key-points">
+                    <li><strong>Market Shift:</strong> From centralized, sovereign-wrapped PPAs (RenovAr) toward private contracting via MATER, targeted tenders (RenMDI, AlmaGBA), and progressive market liberalization</li>
+                    <li><strong>Primary Concern:</strong> Currency convertibility remains the primary concern for foreign capital</li>
+                    <li><strong>RIGI Impact:</strong> RIGI's phased FX availability and capital control reforms viewed as pivotal for scaling long-term project finance</li>
+                    <li><strong>Storage Growth:</strong> Storage has become investable under AlmaGBA's 15-year USD contracts with CAMMESA backstop</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Active Development Finance Institutions</h3>
+                <ul class="key-points">
+                    <li><strong>IDB Group:</strong> Leads multilateral funding with up to $10 billion committed to Argentina over 2025-2028</li>
+                    <li><strong>World Bank (IBRD):</strong> Backstopped RenovAr's early auctions through FODER guarantees</li>
+                    <li><strong>IFC:</strong> Active with tickets of $10-400 million, recently signed $300 million mandate with Central Puerto</li>
+                    <li><strong>FMO (Netherlands):</strong> Long-tenor senior loans, lead arranger roles ($30-100 million facilities)</li>
+                    <li><strong>Other Active DFIs:</strong> Proparco, FinDev Canada, KfW, CAF, EIB, Green Climate Fund</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Key Equity and Strategic Investors</h3>
+                <ul class="key-points">
+                    <li><strong>Genneia:</strong> Argentina's largest renewables platform, operating roughly one-fifth of installed wind/solar capacity</li>
+                    <li><strong>Central Puerto:</strong> Diversified generator pivoting to storage and private PPAs, won AlmaGBA BESS contracts</li>
+                    <li><strong>YPF Luz:</strong> Corporate-client specialist with 1-10 year PPAs, topped 2024 MATER generator ranking</li>
+                    <li><strong>Pampa Energía:</strong> 427 MW of wind capacity, evaluating BESS packages</li>
+                    <li><strong>Other Players:</strong> AES Argentina, PCR, 360 Energy, TotalEnergies</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <strong>Expert Insights:</strong> Bankability playbook includes aligning revenue and debt in US dollars via MATER corporate PPAs, overlaying DFI guarantees and political risk insurance, and proactively managing grid constraints with priority dispatch and storage-enabled flexibility.
+            </div>
+            
+            <div class="citation-note">Based on AlphaSense report "Argentina Renewable Energy Infrastructure: DFI and Equity Investor Landscape" (Dec 03, 2025)</div>
         </div>
         
-        <div class="section">
-            <h2 class="section-header">4. Equity & Strategic Investor Landscape</h2>
-            <p>Domestic Independent Power Producers (IPPs) lead utility-scale development, focusing on MATER PPAs and storage.</p>
+        <!-- Tab 3: RIGI Post-Rejection Options -->
+        <div class="tab-content" id="tab3">
+            <h2 class="report-title">Argentina – Post-Rejection Options for RIGI Applications and Implications for Other Incentive Regimes</h2>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Leading Local IPPs / Equity Investors:</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Role & Strategy</th>
-                        <th>Key Recent Developments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Genneia</strong></td>
-                        <td>Largest renewables platform (~1/5 of nat'l wind/solar capacity). Active in MATER PPAs and storage</td>
-                        <td>Secured 5-yr PPA with Coca-Cola; won AlmaGBA BESS award; issued $310m green bond + $90m DFI placement</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Central Puerto</strong></td>
-                        <td>Diversified generator pivoting to storage and private PPAs</td>
-                        <td>Won two AlmaGBA BESS contracts; acquired 80 MW Cafayate Solar; secured IFC mandate up to $300m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>YPF Luz</strong></td>
-                        <td>Corporate PPA specialist (1-10 year contracts)</td>
-                        <td>Topped 2024 MATER generator ranking; building Levalle wind & El Quemado solar projects</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pampa Energía</strong></td>
-                        <td>Major wind operator (427 MW)</td>
-                        <td>Not pursuing new greenfield generation near-term; evaluating BESS opportunities in Buenos Aires</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AES Argentina</strong></td>
-                        <td>Large diversified portfolio (2,820 MW)</td>
-                        <td>Holds 980 MW renewables pipeline for future private PPAs</td>
-                    </tr>
-                    <tr>
-                        <td><strong>PCR</strong></td>
-                        <td>Scaling MATER wind for industrial demand</td>
-                        <td>180 MW Olavarría wind project with Acindar secured RIGI approval</td>
-                    </tr>
-                    <tr>
-                        <td><strong>360 Energy</strong></td>
-                        <td>Solar developer expanding corporate PPAs</td>
-                        <td>Launched green bond program to fund new PV parks</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="summary-section">
+                <h3>Report Overview</h3>
+                <p>Analysis of remedies available when a RIGI application is rejected or returned for corrections, and implications for accessing Argentina's alternative incentive frameworks.</p>
+            </div>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Global/Regional Players:</h3>
-            <ul class="program-list">
-                <li><strong>TotalEnergies:</strong> Maintains exposure via three wind farms (247 MW gross)</li>
-                <li><strong>Enel Green Power:</strong> No new Argentina activity reported; maintains selective stance</li>
-                <li><strong>Grenergy Renovables:</strong> Active in LatAm; holds legacy wind asset in Argentina (Kosten)</li>
-            </ul>
+            <div class="summary-section">
+                <h3>Immediate Remedies for RIGI Filing Rejection</h3>
+                <ul class="key-points">
+                    <li><strong>Administrative "Subsanación" Window:</strong> Comité Evaluador typically requests additional data or adjustments before definitive refusal (example: McEwen Copper's Los Azules revised and resubmitted after regulator feedback)</li>
+                    <li><strong>Resubmission Within Legal Window:</strong> Projects can file again any time before the window closes (initial 2-year period to July 2026, extendable by one year)</li>
+                    <li><strong>Formal Administrative Appeal:</strong> Right to challenge first-instance decisions through standard hierarchical appeals (15-30 business-day deadlines)</li>
+                    <li><strong>International Arbitration Fallback:</strong> Once admitted, RIGI grants access to international arbitration for disputes</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Strategic Considerations for Resubmission</h3>
+                <ul class="key-points">
+                    <li><strong>Timing:</strong> Lost time may compress ability to invest US$80 million within two years of approval</li>
+                    <li><strong>Parallel Work:</strong> Continue engineering, EIA, and financing work to enable rapid execution once approval secured</li>
+                    <li><strong>Structure Review:</strong> Review SPV bylaws against decree 749/2024 before refiling if shareholding, fiscal domicile or capitalization issues caused setback</li>
+                    <li><strong>Provincial Coordination:</strong> Engage provincial mining/energy ministries early; align EIA timeline with RIGI resubmission</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Impact on Alternative Incentive Regimes</h3>
+                <ul class="key-points">
+                    <li><strong>Renewable Energy Promotion (Law 26,190/27,191):</strong> Projects rejected under RIGI remain eligible provided they haven't renounced other benefits</li>
+                    <li><strong>Provincial Regimes:</strong> Failed national RIGI bid doesn't impede access to provincial tax stability agreements</li>
+                    <li><strong>Sector-Specific Schemes:</strong> May combine with provincial tools if benefits don't overlap</li>
+                    <li><strong>FX and Export Duty Concessions:</strong> Other regimes rarely match RIGI's progressive free FX availability (20%/40%/100%) and three-year export duty holiday</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <strong>Risk Management Best Practices:</strong> Conduct early gap analysis; maintain dual-track incentives review; ensure documentation discipline with audited capex estimates; maintain stakeholder communication about iterative feedback cycles.
+            </div>
+            
+            <div class="citation-note">Based on AlphaSense report "Argentina – Post-Rejection Options for RIGI Applications and Implications for Other Incentive Regimes" (Dec 04, 2025)</div>
         </div>
         
-        <div class="section">
-            <h2 class="section-header">5. Investor Shortlist (15 Names)</h2>
-            <p>A concise list of active DFIs and equity investors.</p>
+        <!-- Tab 4: Technical Standards -->
+        <div class="tab-content" id="tab4">
+            <h2 class="report-title">Technical Standards and Safety Certifications for Distributed Generation Equipment in Argentina</h2>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Focus Area</th>
-                        <th>Typical Ticket Size (USD)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>IDB Invest</strong></td>
-                        <td>DFI</td>
-                        <td>Private-sector debt, mobilization</td>
-                        <td>$30 – 150m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Inter-American Development Bank (IDB)</strong></td>
-                        <td>DFI</td>
-                        <td>Sovereign lending, policy loans</td>
-                        <td>$200m – $1.2bn+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>IFC (World Bank Group)</strong></td>
-                        <td>DFI</td>
-                        <td>Senior/green loans, storage</td>
-                        <td>$10 – 400m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>WBG Guarantees (IBRD/MIGA)</strong></td>
-                        <td>DFI</td>
-                        <td>Credit/political risk guarantees</td>
-                        <td>Program-level $250-500m+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FMO (Netherlands)</strong></td>
-                        <td>DFI</td>
-                        <td>Long-tenor climate loans, syndications</td>
-                        <td>$30 – 100m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FinDev Canada</strong></td>
-                        <td>DFI</td>
-                        <td>Direct debt, concessional co-investment</td>
-                        <td>$40 – 100m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>KfW / DEG (Germany)</strong></td>
-                        <td>DFI</td>
-                        <td>Senior loans, export-linked finance</td>
-                        <td>$20 – 120m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CAF</strong></td>
-                        <td>DFI</td>
-                        <td>Corporate/project loans, guarantees</td>
-                        <td>$30 – 300m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Genneia</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Utility-scale wind/solar, corporate PPAs</td>
-                        <td>Project/Bond: $50 – 300m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Central Puerto</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Solar, wind, BESS; MATER PPAs</td>
-                        <td>BESS Capex: $130 – 140m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>YPF Luz</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Large solar/wind, corporate PPAs</td>
-                        <td>Project Capex: $200m+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pampa Energía</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Wind portfolio</td>
-                        <td>Project Capex: $200 – 300m</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AES Argentina</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Thermal/wind/hydro portfolio; PPAs</td>
-                        <td>Varies by project</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capex S.A.</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>MATER wind/solar</td>
-                        <td>$20 – 100m+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Grenergy Renovables</strong></td>
-                        <td>Equity / IPP</td>
-                        <td>Solar + BESS across LatAm</td>
-                        <td>$50 – 300m+</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="summary-section">
+                <h3>Report Overview</h3>
+                <p>Examination of technical standards and safety certifications required for distributed generation equipment in Argentina beyond ISO 45001:2018, based on available regulatory documentation.</p>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Regulatory Framework</h3>
+                <ul class="key-points">
+                    <li><strong>Foundation:</strong> Law No. 27,424 on Distributed Generation (December 27, 2017) created foundational structure for distributed energy resources</li>
+                    <li><strong>Market Structure:</strong> Resolution No. 1,085/17 modified allocation of costs for High Voltage and Extra High Voltage Transmission systems</li>
+                    <li><strong>Operational Frameworks:</strong> Energía Base (S.E. Resolution 95/2013), Energía Plus (S.E. Resolution 1,281/2006), S.E. Resolution 220/2007, S.E.E. Resolution 21/2016</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Regulatory Oversight Bodies</h3>
+                <ul class="key-points">
+                    <li><strong>ENRE (Ente Nacional Regulador de la Electricidad):</strong> Primary regulatory body controlling quality levels of technical products and services, commercial service standards, and compliance with public safety regulations</li>
+                    <li><strong>CAMMESA (Wholesale Electricity Market Administrative Company):</strong> Manages MEM (Mercado Eléctrico Mayorista) and dispatches electricity into SADI (Sistema Argentino de Interconexión)</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Technical Requirements and Safety Standards</h3>
+                <div class="highlight-box">
+                    <strong>Key Finding:</strong> Specific technical standards or safety certifications required for distributed generation equipment beyond ISO 45001:2018 are not explicitly detailed in the available documentation.
+                </div>
+                <ul class="key-points">
+                    <li>Regulatory focus appears primarily on market structure, operational protocols, and general safety oversight rather than equipment-specific certification requirements</li>
+                    <li>References exist to technical operations including Automatic Generation Disconnect Mechanism (DAG) and "Grounding and Protections for Telecommunications facilities" but not explicitly connected to certification requirements</li>
+                    <li>Further investigation needed of ENRE regulations, technical standards published by IRAM (Argentine Institute of Standardization and Certification), or specific distributed generation connection guidelines</li>
+                </ul>
+            </div>
+            
+            <div class="citation-note">Based on AlphaSense report "Technical Standards and Safety Certifications for Distributed Generation Equipment in Argentina" (Dec 04, 2025)</div>
         </div>
         
-        <div class="section">
-            <h2 class="section-header">6. Expert Insights & Actionable Recommendations</h2>
+        <!-- Tab 5: Regulatory Changes Impact -->
+        <div class="tab-content" id="tab5">
+            <h2 class="report-title">Impact of Argentina's Recent Regulatory Changes on Foreign Investment in Renewable Energy</h2>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Bankability Playbook:</h3>
-            <ul class="action-list">
-                <li><strong>Secure USD Revenue:</strong> Align revenue (via MATER PPA) and debt in US dollars to avoid currency mismatch</li>
-                <li><strong>Layer Risk Mitigation:</strong> Utilize DFI guarantees, political risk insurance (PRI) from MIGA (covers convertibility, breach of contract), and A/B loan structures</li>
-                <li><strong>Manage Grid Risk:</strong> Proactively secure priority dispatch under MATER and consider co-located storage to manage curtailment</li>
-                <li><strong>Leverage New Frameworks:</strong> Evaluate RIGI eligibility for large projects to lock in FX, tax, and regulatory stability for up to 30 years</li>
-            </ul>
+            <div class="summary-section">
+                <h3>Report Overview</h3>
+                <p>Analysis of how Argentina's post-2024 regulatory changes affect foreign investors developing renewable energy projects, focusing on improved bankability, fiscal benefits, and remaining challenges.</p>
+            </div>
             
-            <h3 style="color: #2a9d8f; margin: 25px 0 15px 0;">Actionable Outreach Suggestions:</h3>
-            <ul class="action-list">
-                <li><strong>For Risk Mitigation:</strong> Engage MIGA for PRI term sheets and explore IBRD-style guarantee wraps</li>
-                <li><strong>For Debt Financing:</strong> Approach IFC, CAF, FMO, Proparco for A/B or syndicated USD facilities aligned with MATER PPAs</li>
-                <li><strong>For Project Development:</strong> Secure MATER dispatch priority early; size battery storage to manage grid curtailment and maximize revenue stacking</li>
-                <li><strong>For Regulatory Certainty:</strong> Conduct early analysis of RIGI eligibility and ensure provincial adherence for large-scale projects</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-header">7. Key Acronyms</h2>
+            <div class="summary-section">
+                <h3>Key Regulatory Changes Since 2024</h3>
+                <ul class="key-points">
+                    <li><strong>RIGI (Law 27,742 & Decree 749):</strong> 25% corporate tax (vs. 35%), 30-year stability on tax/customs/FX, 100% retention of export proceeds from year 3, free FX access for debt service and dividends (min. capex ≥ US$200M)</li>
+                    <li><strong>Energy Secretariat Resolution 400/25:</strong> Liberalizes Wholesale Electricity Market (MEM), introduces Term Market (MAT), denominates spot revenues in USD, allows bilateral B2B PPAs</li>
+                    <li><strong>Resolutions 150/2024 & 21/2025:</strong> Repeal excessive state/CAMMESA intervention, set transition rules toward cost-reflective pricing</li>
+                    <li><strong>Act No. 21505:</strong> Raises national renewable generation target to 70% of total output by 2030 and extends tax incentives</li>
+                </ul>
+            </div>
             
-            <table class="acronym-table">
-                <thead>
-                    <tr>
-                        <th>Acronym</th>
-                        <th>Full Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>BESS</strong></td>
-                        <td>Battery Energy Storage System</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CAMMESA</strong></td>
-                        <td>Wholesale Electricity Market Administrator</td>
-                    </tr>
-                    <tr>
-                        <td><strong>DFI</strong></td>
-                        <td>Development Finance Institution</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FI</strong></td>
-                        <td>Financial Institution</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FX</strong></td>
-                        <td>Foreign Exchange</td>
-                    </tr>
-                    <tr>
-                        <td><strong>GCF</strong></td>
-                        <td>Green Climate Fund</td>
-                    </tr>
-                    <tr>
-                        <td><strong>IPP</strong></td>
-                        <td>Independent Power Producer</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MEM</strong></td>
-                        <td>Wholesale Electricity Market</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MIGA</strong></td>
-                        <td>Multilateral Investment Guarantee Agency</td>
-                    </tr>
-                    <tr>
-                        <td><strong>PPA</strong></td>
-                        <td>Power Purchase Agreement</td>
-                    </tr>
-                    <tr>
-                        <td><strong>PRI</strong></td>
-                        <td>Political Risk Insurance</td>
-                    </tr>
-                    <tr>
-                        <td><strong>RIGI</strong></td>
-                        <td>Régimen de Incentivo para Grandes Inversiones (Incentive Scheme for Large Investments)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> *This summary is based on an AI-generated AlphaSense Deep Research report dated December 2025. The original report cautions that AI-generated content may include inaccuracies and should be verified with primary sources. This document is for informational purposes only and not professional advice.*</p>
+            <div class="summary-section">
+                <h3>Opportunities for Foreign Developers</h3>
+                <ul class="key-points">
+                    <li><strong>Enhanced Revenue Certainty:</strong> 20-year CAMMESA PPAs remain available, while Resolution 400/25 unlocks additional USD-based spot and bilateral sales</li>
+                    <li><strong>Lower Fiscal & FX Friction:</strong> RIGI reduces tax rates, abolishes most export duties, freezes fiscal regime for 30 years</li>
+                    <li><strong>Improved Bankability:</strong> FODER guarantees, RIGI FX protections, and dollarized revenues collectively de-risk project debt</li>
+                    <li><strong>Demand Tailwinds:</strong> 70% renewable generation target and 20% consumption quota ensure strong procurement pipelines</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Challenges and Risks</h3>
+                <ul class="key-points">
+                    <li><strong>Minimum Ticket Size:</strong> RIGI benefits only apply to projects ≥ US$200 million</li>
+                    <li><strong>Transition Uncertainty:</strong> Legacy peso-linked PPAs will migrate to liberalized MEM; pricing and dispatch rules during hand-off remain under consultation</li>
+                    <li><strong>Macroeconomic Volatility:</strong> Construction costs and local O&M expenses remain peso-denominated</li>
+                    <li><strong>Permitting Enforcement:</strong> New milestone rules require developers to show progress or risk license revocation</li>
+                </ul>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Strategic Considerations for Market Entry</h3>
+                <ul class="key-points">
+                    <li><strong>Hybrid Revenue Stacks:</strong> Combine RenovAr PPA with MAT sales or corporate PPAs</li>
+                    <li><strong>RIGI VPU Structure:</strong> Ring-fence assets in Single-Project Vehicle to maximize tax and FX benefits</li>
+                    <li><strong>Local-Currency Funding:</strong> Pair international project finance with local bank facilities for peso cost components</li>
+                    <li><strong>Advance Procurement:</strong> Leverage accelerated depreciation and import-tariff relief for early equipment ordering</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <strong>Overall Impact:</strong> Argentina's post-2024 regulatory changes meaningfully improve the commercial landscape for foreign renewable investors by pairing strong demand growth with fiscal, currency, and market reforms, positioning Argentina as a more bankable destination for utility-scale wind, solar, and storage.
+            </div>
+            
+            <div class="citation-note">Based on AlphaSense report "Impact of Argentina's Recent Regulatory Changes on Foreign Investment in Renewable Energy" (Dec 04, 2025)</div>
         </div>
     </div>
     
-    <button class="print-button" onclick="window.print()">📄 Print / Save as PDF</button>
+    <footer>
+        <p>Summaries generated from AlphaSense research reports | Information is AI-generated and should be verified with original sources</p>
+        <p>Report Dates: December 3-4, 2025</p>
+    </footer>
 
     <script>
-        // Add page numbers for print
-        window.onbeforeprint = function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                const pageNum = document.createElement('div');
-                pageNum.style.cssText = 'position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;';
-                pageNum.textContent = `Page ${index + 2}`;
-                section.style.position = 'relative';
-                section.appendChild(pageNum);
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabHeaders = document.querySelectorAll('.tab-header');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all headers and contents
+                    tabHeaders.forEach(h => h.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked header and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
             });
-        };
-        
-        // Remove page numbers after print
-        window.onafterprint = function() {
-            const pageNums = document.querySelectorAll('div[style*="position: absolute; bottom: 20px; right: 20px"]');
-            pageNums.forEach(num => num.remove());
-        };
+        });
     </script>
 </body>
 </html>
